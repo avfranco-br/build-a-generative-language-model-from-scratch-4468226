@@ -18,6 +18,7 @@ post_comments_with_labels = [
     ("What a waste of time.", "neg"),
     ("I do not agree with this post.", "neg"),
     ("I can't believe you would post this.", "neg"),
+    ("I don't like cloudy and rainny days.", "neg")
 ]
 
 class NaiveBayesClassifier:
@@ -46,7 +47,7 @@ class NaiveBayesClassifier:
             pos.append(self.pos_counter[token]/self.sample_count)
             neg.append(self.neg_counter[token]/self.sample_count)
 
-        # rerturn "neg", "pos" or "nutral"
+        # rerturn "neg", "pos" or "neutral"
         if sum(pos) > sum(neg):
             return "pos"
         elif sum(pos) < sum(neg):
@@ -63,3 +64,5 @@ show_hints = False
 def get_sentiment(text):
     cl = NaiveBayesClassifier(post_comments_with_labels)
     return cl.classify(text)
+
+print(get_sentiment("Today it's being a cloudy, rainny and boring day."))

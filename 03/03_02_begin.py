@@ -29,4 +29,4 @@ def similar_words(word="tree", top_k=10):
 result = similar_words("tree", top_k=10)
 print(result)
 
-# print(cosine_similarity(word_to_vector["home"], word_to_vector["house"]))
+print(cosine_similarity(word_to_vector["mother"], word_to_vector["father"]))
